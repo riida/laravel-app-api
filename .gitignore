@@ -18,3 +18,6 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+docker-compose.yml
+docker/mysql/data/
+docker/mysql/logs/

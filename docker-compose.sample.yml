@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+  laravel-api:
+    container_name: laravel-api
+    build: ./docker/php
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - laravel-api-db
+
+  laravel-api-nginx:
+    container_name: laravel-api-nginx
+    image: nginx:1.20-alpine
+    ports:
+      - 8080:80
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - laravel-api
+
+  laravel-api-db:
+    container_name: laravel-api-mysql
+    image: mysql:8.0
+    platform: linux/amd64
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+      - ./docker/mysql/logs:/var/log/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    environment:
+      - MYSQL_DATABASE=laravel_api
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=Asia/Tokyo
+    ports:
+      - 3306:3306
+
+  laravel-api-build-composer:
+    container_name: laravel-api-build-composer
+    build: ./docker/composer
+    tty: true
+    volumes:
+      - .:/var/www/html
+
+  mailpit:
+      container_name: laravel-api-mailpit
+      image: axllent/mailpit
+      ports:
+          - 8025:8025
+          - 1025:1025
+      volumes:
+          - ./docker/mailpit:/data
+      restart: always
+      environment:
+          MP_MAX_MESSAGES: 5000
+          MP_DATA_FILE: /data/mailpit.db
+          MP_SMTP_AUTH_ACCEPT_ANY: 1
+          MP_SMTP_AUTH_ALLOW_INSECURE: 1
