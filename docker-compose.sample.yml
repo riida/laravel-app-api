@@ -30,7 +30,7 @@ services:
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
       - MYSQL_DATABASE=laravel_api
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=pass
       - TZ=Asia/Tokyo
     ports:
       - 3306:3306
