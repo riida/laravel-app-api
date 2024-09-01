@@ -16,7 +16,6 @@ class UserController extends Controller
     {
         $user = User::factory()->create();
         Auth::loginUsingId($user->id);
-        $user->createToken('test');
 
         return response()->json([
             'message' => 'hello world'
