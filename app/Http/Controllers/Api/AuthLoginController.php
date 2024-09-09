@@ -35,8 +35,7 @@ class AuthLoginController extends Controller
         }
 
         $firebase_uid = $verified_id_token->claims()->get('sub');
-        Log::info('firebase_uid: ' . $firebase_uid);
-        $user = User::where('firebase_uid', $firebase_uid)->first();
+        $user         = User::where('firebase_uid', $firebase_uid)->first();
         if (! $user) {
             Log::error('user is not found');
 
@@ -44,8 +43,6 @@ class AuthLoginController extends Controller
                 'message' => 'Token is invalid',
             ], 400);
         }
-        // $user = User::factory()->create();
-
         Auth::loginUsingId($user->id);
 
         return (new AuthInfoResource($user))->response();
