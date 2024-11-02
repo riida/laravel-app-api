@@ -22,3 +22,5 @@ docker-compose.yml
 docker/mysql/data/
 docker/mysql/logs/
 /secure
+
+.DS_Store

@@ -1,0 +1,17 @@
+post:
+  description: Create product
+  tags:
+    - product
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/create-product.yaml'
+  responses:
+    '200':
+      description: create product
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/product.yaml'

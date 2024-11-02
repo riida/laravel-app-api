@@ -1,0 +1,18 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: laravel sample API
+  description: A sample API in the OpenAPI 3.1 specification
+servers:
+  - url: http://localhost:8081
+paths:
+  /product:
+    $ref: './paths/product.yaml'
+  /products:
+    $ref: './paths/products.yaml'
+tags:
+  - name: product
+    description: 商品関連
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io

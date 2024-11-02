@@ -42,6 +42,16 @@ services:
     volumes:
       - .:/var/www/html
 
+  swagger-ui:
+    container_name: swagger-ui
+    image: swaggerapi/swagger-ui
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./openapi:/openapi
+    environment:
+      SWAGGER_JSON: /openapi/openapi.yaml
+
   mailpit:
       container_name: laravel-api-mailpit
       image: axllent/mailpit
