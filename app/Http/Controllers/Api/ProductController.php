@@ -15,7 +15,6 @@ class ProductController extends Controller
     {
         $products = Product::all();
         return response()->json([
-            'status' => true,
             'products' => $products
         ]);
     }
