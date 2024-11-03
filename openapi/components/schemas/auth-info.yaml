@@ -1,0 +1,16 @@
+type: object
+required:
+  - id
+  - name
+  - email
+properties:
+  id:
+    type: integer
+    format: int64
+    example: 1
+  name:
+    type: string
+    example: テスト太郎
+  email:
+    type: string
+    example: test@example.com

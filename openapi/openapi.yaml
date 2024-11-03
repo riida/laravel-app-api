@@ -6,11 +6,17 @@ info:
 servers:
   - url: http://localhost:8081
 paths:
+  /login:
+    $ref: './paths/login.yaml'
+  /auth/info:
+    $ref: './paths/auth-info.yaml'
   /product:
     $ref: './paths/product.yaml'
   /products:
     $ref: './paths/products.yaml'
 tags:
+  - name: auth
+    description: 認証関連
   - name: product
     description: 商品関連
 externalDocs:

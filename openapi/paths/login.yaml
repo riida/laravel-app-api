@@ -1,0 +1,19 @@
+post:
+  description: ログイン
+  tags:
+    - auth
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/login.yaml'
+  responses:
+    '200':
+      description: ログイン成功
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/auth-info.yaml'
+    default:
+      $ref: '../components/responses/errors.yaml#/responses/DefaultError'

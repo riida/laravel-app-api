@@ -1,0 +1,11 @@
+type: object
+required:
+  - code
+  - message
+properties:
+  code:
+    type: string
+    example: BAD_REQUEST
+  message:
+    type: string
+    example: リクエストが不正です

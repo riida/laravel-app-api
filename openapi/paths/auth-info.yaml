@@ -1,0 +1,13 @@
+get:
+  description: 認証情報取得
+  tags:
+    - auth
+  responses:
+    '200':
+      description: ログイン情報取得（ログイン済みの場合）
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/auth-info.yaml'
+    default:
+      $ref: '../components/responses/errors.yaml#/responses/DefaultError'
