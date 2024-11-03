@@ -1,4 +1,4 @@
-FROM php:8.2.3-fpm-alpine3.17
+FROM php:8.3.13-fpm-alpine3.20
 
 RUN apk --update add tzdata && \
     cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
