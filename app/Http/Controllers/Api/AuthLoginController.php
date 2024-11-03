@@ -44,6 +44,6 @@ class AuthLoginController extends Controller
         // $user = User::factory()->create();
 
         Auth::loginUsingId($user->id);
-        return (new AuthInfoResource(Auth::user()))->response();
+        return (new AuthInfoResource($user))->response();
     }
 }
