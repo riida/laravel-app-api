@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateProductRequest;
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 
 class CreateProductController extends Controller
@@ -13,8 +14,7 @@ class CreateProductController extends Controller
         $product = new Product();
         $product->fill($request->validated());
         $product->save();
-        return response()->json([
-            'product' => $product
-        ]);
+        ProductResource::withoutWrapping();
+        return (new ProductResource($product))->response();
     }
 }
