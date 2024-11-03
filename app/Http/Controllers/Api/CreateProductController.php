@@ -15,6 +15,7 @@ class CreateProductController extends Controller
         $product->fill($request->validated());
         $product->save();
         ProductResource::withoutWrapping();
+
         return (new ProductResource($product))->response();
     }
 }

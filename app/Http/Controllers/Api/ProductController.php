@@ -12,6 +12,7 @@ class ProductController extends Controller
     public function __invoke(Request $request)
     {
         $products = Product::all();
+
         return ProductResource::collection($products)->response();
     }
 }

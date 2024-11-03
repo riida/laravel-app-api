@@ -22,9 +22,9 @@ class CreateProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|max:255',
-            'price' => 'required|integer',
-            'description' => 'required'
+            'name'        => 'required|max:255',
+            'price'       => 'required|integer',
+            'description' => 'required',
         ];
     }
 }
