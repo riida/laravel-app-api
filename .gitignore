@@ -24,3 +24,4 @@ docker/mysql/logs/
 /secure
 
 .DS_Store
+/.php-cs-fixer.cache
